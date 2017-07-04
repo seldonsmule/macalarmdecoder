@@ -37,24 +37,24 @@ RUN useradd -ms /bin/bash alarmdecoder && adduser alarmdecoder sudo
 RUN cp /usr/share/zoneinfo/EST5EDT /etc/localtime
 
 # SECTION 2  ngnix section
+#  commenting out nginx secion for now
+###
+###ENV nginxver 1.7.4
+###
+###RUN cd /home/alarmdecoder && mkdir installs
+###WORKDIR /home/alarmdecoder/installs
+###
+###RUN curl http://nginx.org/download/nginx-${nginxver}.tar.gz | tar zxvf -
+###
+###WORKDIR /home/alarmdecoder/installs/nginx-${nginxver}
+###
+###RUN ./configure --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --pid-path=/var/run/nginx.pid --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_ssl_module --with-ipv6
+###
+###RUN make install
+###RUN mkdir -p /var/www
+###RUN mkdir -p /etc/nginx/ssl
+###RUN cp html/* /var/www
 
-ENV nginxver 1.7.4
-
-RUN cd /home/alarmdecoder && mkdir installs
-WORKDIR /home/alarmdecoder/installs
-
-RUN curl http://nginx.org/download/nginx-${nginxver}.tar.gz | tar zxvf -
-
-WORKDIR /home/alarmdecoder/installs/nginx-${nginxver}
-
-RUN ./configure --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --pid-path=/var/run/nginx.pid --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_ssl_module --with-ipv6
-
-RUN make install
-RUN mkdir -p /var/www
-RUN mkdir -p /etc/nginx/ssl
-RUN cp html/* /var/www
-
-###RUN pip install gunicorn
 
 # SECTION 3 gunicorn and Alarmdecoder setup 
 
