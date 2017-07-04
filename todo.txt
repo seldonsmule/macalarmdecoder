@@ -1,0 +1,12 @@
+done 1. timezone
+done. -use exec 2. ssh/password
+3. backup of data --> Check permissions on database 1st.  build embedded scripts.  see if we should move location of start.sh
+4. https
+5. restart
+last. merge dockerfiles
+last-last. publish (github and that docker hub thing)
+
+
+
+
+-rw-r--r-- 1 alarmdecoder alarmdecoder 29696 Jul  3 17:55 db.sqlite
